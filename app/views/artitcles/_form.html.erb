@@ -1,0 +1,25 @@
+<%= form_with(model: artitcle) do |form| %>
+  <% if artitcle.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(artitcle.errors.count, "error") %> prohibited this artitcle from being saved:</h2>
+
+      <ul>
+        <% artitcle.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="field">
+   <%= form.label :video %> 
+   <%= form.file_field :video, direct_upload: true %> 
+   </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
